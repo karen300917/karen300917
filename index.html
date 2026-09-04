@@ -1,110 +1,87 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio - Karen Ardila</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portafolio profesional">
+  <meta name="theme-color" content="#071525">
+  <title>Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="d-flex">
-    <!-- Sidebar -->
-    <nav class="bg-light border-end p-3 vh-100" style="width:250px;">
-      <h4 class="mb-4">Menú</h4>
-      <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Proyectos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Estadísticas</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Tareas</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-      </ul>
-    </nav>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio"><span class="brand-mark"><i class="bi bi-slash-square-fill"></i></span><span data-field="shortName"></span></a>
+      <div class="profile-mini"><div class="avatar" data-initials></div><div class="profile-copy"><strong data-field="name"></strong><span data-field="role"></span></div></div>
+      <p class="menu-label">Principal</p>
+      <nav class="side-nav">
+        <a class="nav-item active" href="#inicio"><i class="bi bi-grid"></i><span>Resumen</span></a>
+        <a class="nav-item" href="#proyectos"><i class="bi bi-kanban"></i><span>Proyectos</span><span class="nav-count" data-project-count></span></a>
+        <a class="nav-item" href="#habilidades"><i class="bi bi-stars"></i><span>Habilidades</span></a>
+        <a class="nav-item" href="#contacto"><i class="bi bi-chat-dots"></i><span>Contacto</span></a>
+      </nav>
+      <div class="availability-card"><span class="status-dot"></span><div><small>Disponibilidad</small><strong data-field="availability"></strong></div></div>
+      <div class="sidebar-footer"><span>© <span id="currentYear"></span></span><span data-field="location"></span></div>
+    </aside>
 
-    <!-- Main Content -->
-    <main class="flex-grow-1 p-4">
-      <div class="container-fluid">
-        <!-- Greeting -->
-        <div class="card mb-4">
-          <div class="card-body">
-            <h3 id="greeting"></h3>
-            <p id="intro"></p>
-          </div>
+    <main class="main-content" id="inicio">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark"><i class="bi bi-slash-square-fill"></i></span><strong data-field="shortName"></strong></div>
+        <label class="search-box" for="projectSearch"><i class="bi bi-search"></i><input id="projectSearch" type="search" placeholder="Buscar un proyecto..." autocomplete="off"><kbd>⌘ K</kbd></label>
+        <div class="top-actions">
+          <a class="icon-btn" data-link="github" href="#" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a class="icon-btn" data-link="linkedin" href="#" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar tema"><i class="bi bi-moon-stars"></i></button>
         </div>
+      </header>
 
-        <!-- Stats -->
-        <div class="row mb-4">
-          <div class="col-md-6">
-            <div class="card text-center border-success">
-              <div class="card-body">
-                <h5 class="card-title">Proyectos</h5>
-                <p id="projectsCount" class="display-6 text-success"></p>
-              </div>
+      <div class="content-wrap">
+        <section class="hero-grid" aria-labelledby="heroTitle">
+          <article class="panel intro-card">
+            <div class="eyebrow"><span class="status-dot"></span><span data-field="availability"></span></div>
+            <h1 id="heroTitle">Hola, soy <span data-field="firstName"></span><span class="accent">.</span></h1>
+            <p data-field="description"></p>
+            <div class="hero-actions"><a class="btn btn-brand" href="#proyectos">Ver proyectos <i class="bi bi-arrow-down-right"></i></a><a class="btn btn-soft" data-email-link href="#">Hablemos <i class="bi bi-chat"></i></a></div>
+          </article>
+          <article class="panel focus-card">
+            <div class="card-topline"><span>Enfoque actual</span><i class="bi bi-arrow-up-right"></i></div><div class="focus-icon"><i class="bi bi-database-check"></i></div><h2 data-field="focus"></h2><p>Construyendo soluciones útiles, seguras y fáciles de entender.</p>
+          </article>
+          <article class="panel stat-card stat-card--blue"><div class="card-topline"><span>Proyectos</span><i class="bi bi-folder2-open"></i></div><strong data-stat="projects"></strong><div class="trend"><i class="bi bi-graph-up-arrow"></i><span>Experiencia aplicada</span></div></article>
+          <article class="panel stat-card stat-card--coral"><div class="card-topline"><span>Tecnologías</span><i class="bi bi-code-slash"></i></div><strong data-stat="technologies"></strong><div class="trend"><i class="bi bi-lightning-charge-fill"></i><span>Aprendizaje continuo</span></div></article>
+        </section>
+
+        <section class="panel projects-panel" id="proyectos" aria-labelledby="projectsTitle">
+          <div class="section-heading"><div><span class="section-kicker">Trabajo seleccionado</span><h2 id="projectsTitle">Mis proyectos</h2></div><div class="filter-group" role="group" aria-label="Filtrar proyectos"><button class="filter-btn active" type="button" data-filter="Todos">Todos</button><button class="filter-btn" type="button" data-filter="Datos">Datos</button><button class="filter-btn" type="button" data-filter="Desarrollo">Desarrollo</button></div></div>
+          <div class="table-responsive"><table class="table project-table align-middle mb-0"><thead><tr><th>Proyecto</th><th>Categoría</th><th>Tecnologías</th><th>Estado</th><th><span class="visually-hidden">Enlace</span></th></tr></thead><tbody id="projectsTable"></tbody></table></div>
+          <div class="empty-state d-none" id="emptyState"><i class="bi bi-search"></i><p>No encontramos proyectos con ese criterio.</p></div>
+        </section>
+
+        <div class="lower-grid">
+          <section class="panel skills-panel" id="habilidades" aria-labelledby="skillsTitle"><div class="section-heading"><div><span class="section-kicker">Mi caja de herramientas</span><h2 id="skillsTitle">Habilidades</h2></div><i class="bi bi-braces section-icon"></i></div><div id="skillsList" class="skills-list"></div></section>
+          <section class="panel contact-panel" id="contacto" aria-labelledby="contactTitle">
+            <div class="contact-orbit"><span></span><span></span><span></span></div>
+            <span class="section-kicker">Contacto</span>
+            <h2 id="contactTitle">Creemos algo<br>que importe.</h2>
+            <p>Estoy disponible para colaborar en proyectos de datos, desarrollo y ciberseguridad.</p>
+            <div class="contact-details">
+              <a class="contact-detail" data-email-link href="#"><i class="bi bi-envelope"></i><span><small>Correo</small><strong data-field="email"></strong></span></a>
+              <a class="contact-detail" data-phone-link href="#"><i class="bi bi-telephone"></i><span><small>Teléfono</small><strong data-field="phone"></strong></span></a>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card text-center border-primary">
-              <div class="card-body">
-                <h5 class="card-title">Tareas</h5>
-                <p id="tasksCount" class="display-6 text-primary"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Projects Table -->
-        <div class="card mb-4">
-          <div class="card-header">Lista de Proyectos</div>
-          <div class="card-body">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Fecha</th>
-                  <th>Prioridad</th>
-                  <th>Archivo</th>
-                </tr>
-              </thead>
-              <tbody id="projectsTable"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Communication -->
-        <div class="card mb-4">
-          <div class="card-header">Últimas Comunicaciones</div>
-          <div class="card-body" id="messagesList"></div>
+            <a class="btn whatsapp-btn" data-whatsapp-link href="#" target="_blank" rel="noreferrer"><i class="bi bi-whatsapp"></i> Escríbeme por WhatsApp <i class="bi bi-arrow-up-right"></i></a>
+          </section>
         </div>
       </div>
     </main>
   </div>
 
+  <nav class="mobile-nav" aria-label="Navegación móvil"><a class="active" href="#inicio"><i class="bi bi-grid"></i><span>Inicio</span></a><a href="#proyectos"><i class="bi bi-kanban"></i><span>Proyectos</span></a><a href="#habilidades"><i class="bi bi-stars"></i><span>Skills</span></a><a href="#contacto"><i class="bi bi-chat-dots"></i><span>Contacto</span></a></nav>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="data.js"></script>
-  <script>
-    // Cargar datos desde data.js
-    document.getElementById("greeting").textContent = "Hola, " + portfolioData.name;
-    document.getElementById("intro").textContent = portfolioData.description;
-    document.getElementById("projectsCount").textContent = portfolioData.stats.projects;
-    document.getElementById("tasksCount").textContent = portfolioData.stats.tasks;
-
-    // Proyectos
-    const table = document.getElementById("projectsTable");
-    portfolioData.projects.forEach(p => {
-      const row = `<tr>
-        <td>${p.name}</td>
-        <td>${p.date}</td>
-        <td>${p.priority}</td>
-        <td>${p.file}</td>
-      </tr>`;
-      table.innerHTML += row;
-    });
-
-    // Mensajes
-    const messages = document.getElementById("messagesList");
-    portfolioData.messages.forEach(m => {
-      const msg = `<p><strong>${m.from}:</strong> ${m.text} <span class="text-muted">(${m.time})</span></p>`;
-      messages.innerHTML += msg;
-    });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio - Karen Ardila</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="bg-light border-end p-3 vh-100" style="width:250px;">
+      <h4 class="mb-4">Menú</h4>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Proyectos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Estadísticas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Tareas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow-1 p-4">
+      <div class="container-fluid">
+        <!-- Greeting -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <h3 id="greeting"></h3>
+            <p id="intro"></p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="card text-center border-success">
+              <div class="card-body">
+                <h5 class="card-title">Proyectos</h5>
+                <p id="projectsCount" class="display-6 text-success"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card text-center border-primary">
+              <div class="card-body">
+                <h5 class="card-title">Tareas</h5>
+                <p id="tasksCount" class="display-6 text-primary"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Table -->
+        <div class="card mb-4">
+          <div class="card-header">Lista de Proyectos</div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Fecha</th>
+                  <th>Prioridad</th>
+                  <th>Archivo</th>
+                </tr>
+              </thead>
+              <tbody id="projectsTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Communication -->
+        <div class="card mb-4">
+          <div class="card-header">Últimas Comunicaciones</div>
+          <div class="card-body" id="messagesList"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    // Cargar datos desde data.js
+    document.getElementById("greeting").textContent = "Hola, " + portfolioData.name;
+    document.getElementById("intro").textContent = portfolioData.description;
+    document.getElementById("projectsCount").textContent = portfolioData.stats.projects;
+    document.getElementById("tasksCount").textContent = portfolioData.stats.tasks;
+
+    // Proyectos
+    const table = document.getElementById("projectsTable");
+    portfolioData.projects.forEach(p => {
+      const row = `<tr>
+        <td>${p.name}</td>
+        <td>${p.date}</td>
+        <td>${p.priority}</td>
+        <td>${p.file}</td>
+      </tr>`;
+      table.innerHTML += row;
+    });
+
+    // Mensajes
+    const messages = document.getElementById("messagesList");
+    portfolioData.messages.forEach(m => {
+      const msg = `<p><strong>${m.from}:</strong> ${m.text} <span class="text-muted">(${m.time})</span></p>`;
+      messages.innerHTML += msg;
+    });
+  </script>
+</body>
+</html>

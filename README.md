@@ -11,7 +11,7 @@ Toda la información personal está centralizada en `data.js`: nombre, perfil, c
 Puedes abrir `index.html` directamente o iniciar un servidor local:
 
 ```bash
-python -m http.server 4173
+https://karen300917.github.io/karen300917/
 ```
 
-Luego visita `http://localhost:4173`.
+

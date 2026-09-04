@@ -30,7 +30,7 @@
       return matchesFilter && searchable.includes(currentSearch);
     });
     projectsTable.innerHTML = visibleProjects.map(project => `
-      <tr><td><div class="project-name"><span class="project-icon"><i class="bi ${project.category === "Datos" ? "bi-bar-chart" : project.category === "Seguridad" ? "bi-shield-lock" : "bi-window"}"></i></span><div><strong>${escapeHTML(project.name)}</strong><small>${escapeHTML(project.description)}</small></div></div></td>
+      <tr><td><div class="project-name"><span class="project-icon"><i class="bi ${project.category === "Datos" ? "bi-bar-chart" : project.category === "Seguridad" ? "bi-shield-lock" : "bi-window"}"></i></span><div><strong>${escapeHTML(project.name)}</strong><small>${escapeHTML(project.description)}</small><span class="mobile-project-status ${project.status === "En progreso" ? "progress-status" : ""}">${escapeHTML(project.status)}</span></div></div></td>
       <td>${escapeHTML(project.category)}</td><td>${project.technologies.map(technology => `<span class="tag">${escapeHTML(technology)}</span>`).join("")}</td>
       <td><span class="status-badge ${project.status === "En progreso" ? "progress-status" : ""}">${escapeHTML(project.status)}</span></td>
       <td><a class="project-link" href="${escapeHTML(project.link)}" aria-label="Abrir ${escapeHTML(project.name)}"><i class="bi bi-arrow-up-right"></i></a></td></tr>`).join("");

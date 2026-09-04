@@ -1,6 +1,6 @@
 /* EDITA ÚNICAMENTE ESTE ARCHIVO PARA ACTUALIZAR TU INFORMACIÓN. */
 const portfolioData = {
-  name: "Karen Ardila",
+  name: "Karen Ardila Marin",
   shortName: "Karen.",
   role: "Ingeniera de Sistemas",
   description: "Ingeniera de Sistemas enfocada en análisis de datos y ciberseguridad. Transformo información compleja en soluciones claras, útiles y seguras.",
@@ -21,7 +21,7 @@ const portfolioData = {
     { name: "Modelo de Base de Datos", description: "Diseño conceptual y modelo relacional.", category: "Datos", technologies: ["MySQL", "UML"], status: "Completado", link: "#" },
     { name: "Dashboard de Analítica", description: "Indicadores y visualización de resultados.", category: "Datos", technologies: ["Python", "Pandas"], status: "En progreso", link: "#" },
     { name: "Auditoría de Seguridad", description: "Análisis de riesgos y buenas prácticas.", category: "Seguridad", technologies: ["Linux", "OWASP"], status: "Completado", link: "#" },
-    { name: "Portafolio Personal", description: "Experiencia web responsive y accesible.", category: "Desarrollo", technologies: ["Bootstrap", "CSS"], status: "En progreso", link: "#" }
+    { name: "Portafolio Personal", description: "Experiencia web responsive y accesible.", category: "Desarrollo", technologies: ["Bootstrap", "CSS"], status: "En progreso", link: "https://github.com/karen300917/karen300917" }
   ],
   skills: [
     { name: "Análisis de datos", level: 88, icon: "bi-bar-chart" },
